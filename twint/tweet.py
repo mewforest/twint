@@ -108,7 +108,13 @@ def Tweet(tw, config):
     except KeyError:
         t.photos = []
     try:
-        t.video = tw['extended_entities']['media'][-1]['video_info']['variants'][-1]['url']
+        # t.video = tw['extended_entities']['media'][-1]['video_info']['variants'][-1]['url']
+        videos = tw['extended_entities']['media'][-1]['video_info']['variants']
+        max_bitrate_video, max_bitrate = None, -1
+        for video in videos:
+            if 'bitrate' in video.keys() and video['bitrate'] > max_bitrate:
+                max_bitrate_video = video
+        t.video = max_bitrate_video['url']
     except (KeyError, IndexError):
         t.video = ''
     try:
