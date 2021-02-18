@@ -1,3 +1,20 @@
+# Twint 2021 Edition changes:
+
+- Fixed profile critical errors while parsing
+- Added video url to tweet.video (with maximum quality)
+- ...
+
+Code tested in Python 3.7 
+
+All text above is original.
+Be note: installation process of this fork could be only with git:
+
+```
+pip3 install git+https://github.com/mewforest/twint-2021.git
+```
+
+---
+
 # TWINT - Twitter Intelligence Tool
 ![2](https://i.imgur.com/iaH3s7z.png)
 ![3](https://i.imgur.com/hVeCrqL.png)
