@@ -1,3 +1,9 @@
+## LITE VERSION (lite branch)
+
+Removed unused libraries:
+- elasticsearch
+- pandas
+
 # Twint 2021 Edition changes:
 
 - Fixed profile critical errors while parsing
@@ -46,9 +52,7 @@ Twitter limits scrolls while browsing the user timeline. This means that with `.
 - beautifulsoup4;
 - cchardet;
 - dataclasses
-- elasticsearch;
 - pysocks;
-- pandas (>=0.23.0);
 - aiohttp_socks;
 - schedule;
 - geopy;
@@ -94,7 +98,6 @@ A few simple examples to help you understand the basics:
 - `twint -u username --email --phone` - Show Tweets that might have phone numbers or email addresses.
 - `twint -s "Donald Trump" --verified` - Display Tweets by verified users that Tweeted about Donald Trump.
 - `twint -g="48.880048,2.385939,1km" -o file.csv --csv` - Scrape Tweets from a radius of 1km around a place in Paris and export them to a csv file.
-- `twint -u username -es localhost:9200` - Output Tweets to Elasticsearch
 - `twint -u username -o file.json --json` - Scrape Tweets and save as a json file.
 - `twint -u username --database tweets.db` - Save Tweets to a SQLite database.
 - `twint -u username --followers` - Scrape a Twitter user's followers.
@@ -146,11 +149,6 @@ twint.run.Search(c)
 - CSV;
 - JSON;
 - SQLite;
-- Elasticsearch.
-
-## Elasticsearch Setup
-
-Details on setting up Elasticsearch with Twint is located in the [wiki](https://github.com/twintproject/twint/wiki/Elasticsearch).
 
 ## Graph Visualization
 ![graph](https://i.imgur.com/EEJqB8n.png)

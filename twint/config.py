@@ -12,7 +12,6 @@ class Config:
     Near: str = None
     Lang: Optional[str] = None
     Output: Optional[str] = None
-    Elasticsearch: object = None
     Year: Optional[int] = None
     Since: Optional[str] = None
     Until: Optional[str] = None
@@ -32,7 +31,6 @@ class Config:
     All = None
     Debug: bool = False
     Format = None
-    Essid: str = ""
     Profile: bool = False
     Followers: bool = False
     Following: bool = False
@@ -44,20 +42,13 @@ class Config:
     Store_object_tweets_list: list = None
     Store_object_users_list: list = None
     Store_object_follow_list: list = None
-    Pandas_type: type = None
-    Pandas: bool = False
-    Index_tweets: str = "twinttweets"
-    Index_follow: str = "twintgraph"
-    Index_users: str = "twintuser"
     Retries_count: int = 10
     Resume: object = None
     Images: bool = False
     Videos: bool = False
     Media: bool = False
     Replies: bool = False
-    Pandas_clean: bool = True
     Lowercase: bool = True
-    Pandas_au: bool = True
     Proxy_host: str = ""
     Proxy_port: int = 0
     Proxy_type: object = None

@@ -36,15 +36,11 @@ class Twint:
         self.token.refresh()
         self.conn = db.Conn(config.Database)
         self.d = datelock.Set(self.config.Until, self.config.Since)
-        verbose.Elastic(config.Elasticsearch)
 
         if self.config.Store_object:
             logme.debug(__name__ + ':Twint:__init__:clean_follow_list')
             output._clean_follow_list()
 
-        if self.config.Pandas_clean:
-            logme.debug(__name__ + ':Twint:__init__:pandas_clean')
-            storage.panda.clean()
 
     def get_resume(self, resumeFile):
         if not os.path.exists(resumeFile):
@@ -337,9 +333,6 @@ def Favorites(config):
     config.Profile = False
     config.TwitterSearch = False
     run(config)
-    if config.Pandas_au:
-        storage.panda._autoget("tweet")
-
 
 def Followers(config):
     logme.debug(__name__ + ':Followers')
@@ -349,14 +342,6 @@ def Followers(config):
     config.Favorites = False
     config.TwitterSearch = False
     run(config)
-    if config.Pandas_au:
-        storage.panda._autoget("followers")
-        if config.User_full:
-            storage.panda._autoget("user")
-    if config.Pandas_clean and not config.Store_object:
-        # storage.panda.clean()
-        output._clean_follow_list()
-
 
 def Following(config):
     logme.debug(__name__ + ':Following')
@@ -366,14 +351,6 @@ def Following(config):
     config.Favorites = False
     config.TwitterSearch = False
     run(config)
-    if config.Pandas_au:
-        storage.panda._autoget("following")
-        if config.User_full:
-            storage.panda._autoget("user")
-    if config.Pandas_clean and not config.Store_object:
-        # storage.panda.clean()
-        output._clean_follow_list()
-
 
 def Lookup(config):
     logme.debug(__name__ + ':Lookup')
@@ -384,8 +361,6 @@ def Lookup(config):
     config.Followers = False
     config.TwitterSearch = False
     run(config)
-    if config.Pandas_au:
-        storage.panda._autoget("user")
 
 
 def Profile(config):
@@ -396,8 +371,6 @@ def Profile(config):
     config.Followers = False
     config.TwitterSearch = False
     run(config)
-    if config.Pandas_au:
-        storage.panda._autoget("tweet")
 
 
 def Search(config, callback=None):
@@ -408,5 +381,3 @@ def Search(config, callback=None):
     config.Followers = False
     config.Profile = False
     run(config, callback)
-    if config.Pandas_au:
-        storage.panda._autoget("tweet")
